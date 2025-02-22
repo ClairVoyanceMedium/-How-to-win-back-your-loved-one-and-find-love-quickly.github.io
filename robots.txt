@@ -1,42 +1,99 @@
-# Indique aux robots que toutes les pages peuvent être explorées, sauf restrictions spécifiées
+# קובץ robots.txt מותאם עבור https://clairvoyancemedium.github.io/How-to-win-back-your-loved-one-and-find-love-quickly.github.io/
+# עודכן לאחרונה: 2025-02-22 12:00 UTC
+# תוכנן להיות המוביל ב-SEO לשנת 2025 עבור השוק הישראלי, עם תמיכה מלאה במובייל, תמונות, וידאו, Google News,
+# הגנה מפני בוטים של AI ותאימות מלאה למנועי חיפוש מרובים.
+#
+# הערה: התאימו את החריגים לפרמטרים ולתיקיות לפי מבנה האתר הספציפי שלכם.
+
+# --- הנחיות כלליות לכל הבוטים ---
 User-agent: *
-Disallow: /admin/
-Disallow: /tmp/
+Allow: /
+# חריגים לקבצי JS ו-CSS עם פרמטרים
+Allow: /*.js$
+Allow: /*.css$
+# חסימת כתובות עם פרמטרים דינמיים למעט חריגים מפורשים
+Disallow: /*?*
+Allow: /payment?*  # חריג לדפי תשלום (כגון Stripe)
+Allow: /form?*     # חריג לדפי טפסים (למשל הזמנת ייעוץ, התאימו לפי הצורך)
+Allow: /track?*    # חריג לפרמטרי מעקב (למשל Google Analytics, התאימו לפי הצורך)
+# תיקיות טכניות או רגישות
+Disallow: /.git/
 Disallow: /private/
+Disallow: /temp/
+Crawl-delay: 10
 
-# Bloquer des URL avec paramètres inutiles pour l'indexation
-Disallow: /*?debug=true
-Disallow: /*?preview=true
-
-# Permettre les fichiers nécessaires au bon affichage et fonctionnement
-Allow: /css/
-Allow: /js/
-Allow: /images/
-
-# Référencement des ressources multimédias
-Allow: *.png
-Allow: *.jpg
-Allow: *.webp
-Allow: *.css
-Allow: *.js
-
-# Fournir le chemin du fichier sitemap pour une meilleure indexation
-Sitemap: https://www.clairvoyancemedium.com/sitemap.xml
-
-# Autorisation pour les robots Google et Bing pour maximiser les campagnes publicitaires
+# --- הנחיות ספציפיות ל-Googlebot ---
 User-agent: Googlebot
 Allow: /
-User-agent: AdsBot-Google
+Disallow: /*.pdf$  # חסימת קבצי PDF אלא אם כן נדרש במכוון
+# ללא Crawl-delay עבור Googlebot (מתעלם מההנחיה ומתאים אוטומטית)
+Sitemap: https://clairvoyancemedium.github.io/How-to-win-back-your-loved-one-and-find-love-quickly.github.io/sitemap.xml
+# ניהול פרמטרים דינמיים עבור Google
+Clean-param: ref&sessionid&trackid /
+
+User-agent: Googlebot-Mobile
 Allow: /
+Sitemap: https://clairvoyancemedium.github.io/How-to-win-back-your-loved-one-and-find-love-quickly.github.io/sitemap-mobile.xml
+
+User-agent: Googlebot-Image
+Allow: /Images/
+Disallow: /Images/private/
+Sitemap: https://clairvoyancemedium.github.io/How-to-win-back-your-loved-one-and-find-love-quickly.github.io/sitemap-images.xml
+
+User-agent: Googlebot-Video
+Allow: /Videos/
+Sitemap: https://clairvoyancemedium.github.io/How-to-win-back-your-loved-one-and-find-love-quickly.github.io/sitemap-video.xml
+
+User-agent: Googlebot-News
+Allow: /News/
+Sitemap: https://clairvoyancemedium.github.io/How-to-win-back-your-loved-one-and-find-love-quickly.github.io/sitemap-news.xml
+
+# --- הנחיות למנועי חיפוש נוספים ---
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 5   # מופחת ל-5 שניות עבור Bingbot לאינדוקס מהיר יותר
+Sitemap: https://clairvoyancemedium.github.io/How-to-win-back-your-loved-one-and-find-love-quickly.github.io/sitemap.xml
 
-# Bloquer les robots nuisibles ou non désirés
-User-agent: BadBot
-Disallow: /
-User-agent: EvilScraper
+User-agent: YandexBot
+Allow: /
+Disallow: /temp/
+Crawl-delay: 20  # שמירה על 20 שניות עבור YandexBot עקב סריקה אגרסיבית
+Sitemap: https://clairvoyancemedium.github.io/How-to-win-back-your-loved-one-and-find-love-quickly.github.io/sitemap.xml
+
+User-agent: DuckDuckGoBot
+Allow: /
+Crawl-delay: 8   # ערך ביניים של 8 שניות עבור DuckDuckGoBot
+Sitemap: https://clairvoyancemedium.github.io/How-to-win-back-your-loved-one-and-find-love-quickly.github.io/sitemap.xml
+
+# --- חסימת בוטים של AI וסקרייפרים לא רצויים ---
+User-agent: GPTBot
 Disallow: /
 
-# Empêcher l'exploration des fichiers sensibles
-Disallow: /config/
-Disallow: /backup/
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /  # חסימה אופציונלית אם אין צורך בסריקת Facebook
+
+# --- חסימת בוטים ישנים או לא רלוונטיים ---
+User-agent: msnbot
+Disallow: /
+
+User-agent: Slurp
+Disallow: /
+
+# --- הגדרת מארח ---
+Host: https://clairvoyancemedium.github.io/How-to-win-back-your-loved-one-and-find-love-quickly.github.io
+
+# --- הצהרת מפות אתר ---
+Sitemap: https://clairvoyancemedium.github.io/How-to-win-back-your-loved-one-and-find-love-quickly.github.io/sitemap.xml
+Sitemap: https://clairvoyancemedium.github.io/How-to-win-back-your-loved-one-and-find-love-quickly.github.io/sitemap-mobile.xml
+Sitemap: https://clairvoyancemedium.github.io/How-to-win-back-your-loved-one-and-find-love-quickly.github.io/sitemap-images.xml
+Sitemap: https://clairvoyancemedium.github.io/How-to-win-back-your-loved-one-and-find-love-quickly.github.io/sitemap-video.xml
+Sitemap: https://clairvoyancemedium.github.io/How-to-win-back-your-loved-one-and-find-love-quickly.github.io/sitemap-news.xml
